@@ -10,8 +10,10 @@ class Chat extends React.Component{
     messagesToShow = () => this.props.messages.map(msg => {
         return (
            <Message 
+                avatar={msg.currentAvatar}
                 key={msg.id}
-                msg = {msg}
+                text = {msg.text}
+                username = {msg.username}
            />
         )
     });
@@ -19,7 +21,7 @@ class Chat extends React.Component{
     render() {
         return (
             <div className="row justify-content-center">
-                <div className="col-10 text-center chatBox">
+                <div className="col-10 text-center">
                     {this.messagesToShow()}
                 </div>
             </div>

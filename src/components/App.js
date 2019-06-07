@@ -3,6 +3,9 @@ import io from 'socket.io-client';
 import Chat from './Chat';
 import NewMessage from './NewMessage';
 
+
+import './App.css'
+
 let socket = io("https://spotim-demo-chat-server.herokuapp.com");
 
 class App extends React.Component {
@@ -32,8 +35,7 @@ class App extends React.Component {
 
     createMessage = msg => {
         console.log(msg);
-        //socket.emit('spotim/chat', "asd")
-        this.setState( { messages: [...this.state.messages , msg] } );
+        socket.emit('spotim/chat', msg)
         console.log(this.state.messages)
     }
 
@@ -43,13 +45,13 @@ class App extends React.Component {
                 <header className="text-center justify-content-center">
                     <h1 className="title">Welcome to my Group Chat</h1>
                 </header>
-                <div className="row justify-content-between">
-                    <div className="col-4 text-center justify-content-center">
-                        <NewMessage createMessage={this.createMessage} />
-                    </div>
-                    <div className="col-8 text-center justify-content-center">
+                <div className="row justify-content-center">
+                    <div className="col-8 chatBox text-center justify-content-center">
                         <Chat messages={this.state.messages} />
                     </div>  
+                    <div className="col-8 text-center justify-content-center">
+                        <NewMessage createMessage={this.createMessage} />
+                    </div>
                 </div>
             </div>
        )
