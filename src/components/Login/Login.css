@@ -2,7 +2,9 @@
     width:30%;
 }
 .row h3{
-    text-shadow: 1px 1px #fafafa;
+    text-shadow: 1px 1.5px #140202;
+    margin: 10px;
+    color: white
 }
 .btn.btn-light {
     width:120px;

@@ -13,16 +13,16 @@ class Login extends React.Component {
 
   loginUser = () => {
     if (this.state.user) {
-      this.setState({ userLogged: true, isMissing: false });
       this.props.userLogged(this.state.user);
+      this.setState({ userLogged: true, isMissing: false });
     } else {
       this.setState({ isMissing: true });
     }
   };
 
   logoutUser = () => {
-    this.setState({ user: undefined, userLogged: false });
     this.props.userLoggedOut();
+    this.setState({ user: undefined, userLogged: false });
   };
 
   handleKeypress = event => {
@@ -30,9 +30,10 @@ class Login extends React.Component {
       this.loginUser();
     }
   };
+
   onTextFieldChange = event => {
-    this.setState({user: event.target.value});
-  }
+    this.setState({ user: event.target.value });
+  };
 
   render() {
     return (
@@ -42,7 +43,7 @@ class Login extends React.Component {
       >
         {this.state.userLogged ? (
           <div className="row justify-content-center text-center">
-            <h3 style={{ margin: "10px" }}>Hello {this.state.user}</h3>
+            <h3>Hello {this.state.user}</h3>
             <div className="row text-center justify-content-center">
               <input
                 className="btn btn-light"

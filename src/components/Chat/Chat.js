@@ -35,8 +35,8 @@ class Chat extends React.Component {
       <div className={"row justify-content-center msgRow"}>
         <Message
           avatar={cry}
-          text="No Messages - Be the first one to write"
-          username="empty"
+          text="No Messages - Be the first one to comment"
+          username=""
         />
       </div>
     );

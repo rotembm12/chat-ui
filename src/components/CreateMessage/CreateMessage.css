@@ -9,8 +9,8 @@
   margin: 10px;
 }
 img.avatar:hover {
-  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-top:12px !important;
+  box-shadow: 1px 1px 2px 1px rgba(255,255,255,0.5);
+  margin-top:8px !important;
 }
 .row button {
   width: 100% !important;
@@ -56,6 +56,9 @@ div.textField{
   width: 50px;
   height: 50px;
 }
+
 .avatarsDiv img{
-  margin-top: 15px;
+  margin: 7px;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px
 }
