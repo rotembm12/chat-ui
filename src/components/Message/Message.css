@@ -1,0 +1,51 @@
+.msgRow{
+    max-height: 100px;
+    width: 100%
+}
+.currentUser{
+    background-color: rgba(155, 255, 130, 0.74);
+}
+.msgRow div {
+    max-height: 100% !important;
+}
+.msgAvatar{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px !important;
+}
+h6{
+    color: rgb(122, 65, 255);
+    margin-top:12px !important;
+}
+div.delete {
+    font-size: 25px;
+}
+.col-1 img:hover {
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+    margin-bottom: 3px !important;
+}
+
+.scale-up {
+	-webkit-animation: scale-up 0.4s cubic-bezier(0, 0.8, 0.565, 1.000) both;
+	        animation: scale-up 0.4s cubic-bezier(0, 0.8, 0.565, 1.000) both;
+}
+@-webkit-keyframes scale-up {
+    0% {
+        -webkit-transform: scale(0.4);
+                transform: scale(0.4);
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}
+@keyframes scale-up {
+    0% {
+        -webkit-transform: scale(0.4);
+                transform: scale(0.4);
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+    }
+}

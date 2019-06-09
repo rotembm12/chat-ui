@@ -1,6 +1,19 @@
 header{
     margin-bottom: 50px;
+    padding:20px;
 }
 .title {
-    color: rgb(14, 106, 255);
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px #3f3f3f;
+}
+
+body{ 
+    height: 100vh;
+    background-attachment: fixed;
+    background:url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/S15GBCm/videoblocks-cartoon-landscape-with-deep-jungle-background-with-space-for-your-text-or-logo-colorful-forest-animation-full-hd-game-background-4k-rain-forest-with-lake-animation_s-ocon3kz_thumbnail-full07.png) top right no-repeat;
+    background-attachment:fixed; 
+
+}
+.btn.btn-light:hover {
+    background-color: rgba(58, 255, 140, 0.4);
 }

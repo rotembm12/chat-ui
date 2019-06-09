@@ -1,0 +1,9 @@
+.chatBox {
+    background-color: white;
+    min-height: 76px;
+    box-shadow: inset 11px 5px 30px 10px rgba(58, 255, 140, 0.2);
+}
+
+.msgRow {
+    border-bottom: 1px solid rgb(0, 0, 0);
+}

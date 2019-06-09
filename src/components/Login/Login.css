@@ -1,0 +1,14 @@
+.row input{
+    width:30%;
+}
+.row h3{
+    text-shadow: 1px 1px #fafafa;
+}
+.btn.btn-light {
+    width:120px;
+}
+.MuiInputBase-root{
+    color: green !important;
+    font-weight: 700;
+    border-radius: 8px;
+}
