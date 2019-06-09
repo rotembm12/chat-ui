@@ -1,7 +1,7 @@
 import React from "react";
 import io from "socket.io-client";
 import Chat from "./Chat/Chat";
-import NewMessage from "./NewMessage/NewMessage";
+import CreateMessage from "./CreateMessage/CreateMessage";
 import Login from "./Login/Login";
 import "./App.css";
 
@@ -37,8 +37,7 @@ class App extends React.Component {
   };
 
   userLogged = user => {
-    this.setState({ user });
-    this.setState({ userLogged: true });
+    this.setState({ user: user, userLogged: true });
   };
 
   userLoggedOut = () => {
@@ -46,7 +45,8 @@ class App extends React.Component {
   };
 
   deleteMessage = id => {
-    const filteredMessages = this.state.messages.filter(msg => msg.id !== id);
+    const { messages } = this.state;
+    const filteredMessages = messages.filter(msg => msg.id !== id);
     this.setState({ messages: filteredMessages });
   };
 
@@ -71,7 +71,7 @@ class App extends React.Component {
               />
             </div>
             <div className="col-8 text-center justify-content-center">
-              <NewMessage
+              <CreateMessage
                 username={this.state.user}
                 createMessage={this.createMessage}
               />

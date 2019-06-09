@@ -10,7 +10,7 @@
 }
 img.avatar:hover {
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-  margin: 0.5px !important;
+  margin-top:12px !important;
 }
 .row button {
   width: 100% !important;
@@ -50,5 +50,12 @@ form {
 }
 
 div.textField{
-    margin-top:35px
+    margin-top:45px
+}
+.chosenAvatarDiv img {
+  width: 50px;
+  height: 50px;
+}
+.avatarsDiv img{
+  margin-top: 15px;
 }

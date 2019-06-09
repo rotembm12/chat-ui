@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewMessage.css";
+import "./CreateMessage.css";
 import uuid from "uuid";
 import TextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
@@ -8,11 +8,12 @@ import dog from "../../assets/avatars/dog.png";
 import lion from "../../assets/avatars/lion.png";
 import monkey from "../../assets/avatars/monkey.png";
 import zebra from "../../assets/avatars/zebra.png";
-class NewMessage extends React.PureComponent {
+
+class CreateMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      avatars: [],
+      avatars: [cat, dog, lion, monkey, zebra],
       text: "",
       avatar: "",
       chosenAvatar: "",
@@ -25,15 +26,20 @@ class NewMessage extends React.PureComponent {
     event.preventDefault();
     if (this.state.text === "") {
       alert("text is empty!");
-      return;
     } else if (this.state.chosenAvatar === "") {
       alert("please Select avatar");
     } else {
-      this.props.createMessage({
+      const msg = {
+        avatar: this.state.chosenAvatar,
         text: this.state.text,
         id: uuid.v4(),
-        username: this.props.username,
-        avatar: this.state.chosenAvatar
+        username: this.props.username
+      };
+      this.props.createMessage({
+        text: msg.text,
+        id: msg.id,
+        username: msg.username,
+        avatar: msg.avatar
       });
       this.setState({ username: "", text: "", id: "" });
     }
@@ -42,10 +48,15 @@ class NewMessage extends React.PureComponent {
   onChangeAvatar = event => {
     this.setState({ chosenAvatar: event.target.src });
   };
+
   handleKeypress = event => {
     if (event.keyCode === 13) {
       this.onFormSubmit(event);
     }
+  };
+
+  onTextFieldChange = event => {
+    this.setState({ text: event.target.value });
   };
 
   render() {
@@ -57,14 +68,10 @@ class NewMessage extends React.PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <div className="row justify-content-center">
             <div className="col-4 icons text-center justify-content-center">
-              <div className="row justify-content-center">
-                {[cat, dog, lion, monkey, zebra].map(avatar => {
+              <div className="row justify-content-center avatarsDiv">
+                {this.state.avatars.map(avatar => {
                   return (
-                    <div
-                      key={avatar}
-                      className="col-4"
-                      style={{ marginTop: "15px" }}
-                    >
+                    <div key={avatar} className="col-4">
                       <img
                         src={avatar}
                         alt="avatar"
@@ -86,16 +93,14 @@ class NewMessage extends React.PureComponent {
                 margin="normal"
                 variant="outlined"
                 value={this.state.text}
-                onChange={e => this.setState({ text: e.target.value })}
+                onChange={this.onTextFieldChange}
               />
             </div>
             <div className="col-2 iconDiv">
-              <div className="row justify-content-center text-center">
-                <img
-                  src={this.state.chosenAvatar}
-                  alt=""
-                  style={{ width: "50px", height: "50px" }}
-                />
+              <div className="row justify-content-center text-center chosenAvatarDiv">
+                {this.state.chosenAvatar ? (
+                  <img src={this.state.chosenAvatar} alt="chosenAvatar" />
+                ) : null}
               </div>
               <div className="row justify-content-center text-center">
                 <button className="btn btn-light">Send</button>
@@ -108,8 +113,8 @@ class NewMessage extends React.PureComponent {
   }
 }
 
-NewMessage.propTypes = {
+CreateMessage.propTypes = {
   username: PropTypes.string.isRequired
 };
 
-export default NewMessage;
+export default CreateMessage;

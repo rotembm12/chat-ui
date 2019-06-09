@@ -13,9 +13,8 @@ class Login extends React.Component {
 
   loginUser = () => {
     if (this.state.user) {
-      this.setState({ userLogged: true });
+      this.setState({ userLogged: true, isMissing: false });
       this.props.userLogged(this.state.user);
-      this.setState({ isMissing: false });
     } else {
       this.setState({ isMissing: true });
     }
@@ -31,6 +30,9 @@ class Login extends React.Component {
       this.loginUser();
     }
   };
+  onTextFieldChange = event => {
+    this.setState({user: event.target.value});
+  }
 
   render() {
     return (
@@ -66,7 +68,7 @@ class Login extends React.Component {
                 className="form-control"
                 variant="outlined"
                 value={this.state.user}
-                onChange={e => this.setState({ user: e.target.value })}
+                onChange={this.onTextFieldChange}
               />
             </div>
             <div className="row text-center justify-content-center">
